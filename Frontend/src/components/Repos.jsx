@@ -2,7 +2,7 @@ import React from 'react'
 import Repo from './Repo'
 
 const Repos = ({repos}) => {
-  console.log(repos);
+  // console.log(repos);
   return (
     <div className='lg:w-2/3 w-full bg-glassMorphismEffect rounded-lg px-8 py-6'>
       <ol className='relative border-s bordergr200 '>
