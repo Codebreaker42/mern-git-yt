@@ -18,11 +18,7 @@ const HomePage = () => {
     try{
       // api gives 60 requests per hr, 500 requested per hour to authenticated request 
       // url for getting github user information 
-      const userRes=await fetch(`https://api.github.com/users/${username}`,{ //https://api.github.com/users/{username}
-        headers:{
-          // authorization: `token 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`, //token is used to hit the api 5000/hr
-        }
-      });
+      const userRes=await fetch(`https://api.github.com/users/${username}`); 
       const userProfile=await userRes.json();
       
       setUserProfile(userProfile);  // setting the userProfile
