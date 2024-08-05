@@ -16,8 +16,13 @@ const HomePage = () => {
   const getUserProfileAndRepos=useCallback(async(username="Codebreaker42")=>{
     setLoading(true);
     try{
+      // api gives 60 requests per hr, 500 requested per hour to authenticated request 
       // url for getting github user information 
-      const userRes=await fetch(`https://api.github.com/users/${username}`) //https://api.github.com/users/{username}
+      const userRes=await fetch(`https://api.github.com/users/${username}`,{ //https://api.github.com/users/{username}
+        headers:{
+          authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`, //token is used to hit the api 5000/hr
+        }
+      });
       const userProfile=await userRes.json();
       
       setUserProfile(userProfile);  // setting the userProfile
