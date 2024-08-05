@@ -20,7 +20,7 @@ const HomePage = () => {
       // url for getting github user information 
       const userRes=await fetch(`https://api.github.com/users/${username}`,{ //https://api.github.com/users/{username}
         headers:{
-          authorization: `token ${import.meta.env.VITE_GITHUB_API_KEY}`, //token is used to hit the api 5000/hr
+          // authorization: `token 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`, //token is used to hit the api 5000/hr
         }
       });
       const userProfile=await userRes.json();
