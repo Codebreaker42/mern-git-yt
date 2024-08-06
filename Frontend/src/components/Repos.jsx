@@ -1,10 +1,11 @@
 import React from 'react'
 import Repo from './Repo'
 
-const Repos = ({repos}) => {
+const Repos = ({repos,alwaysFullWidth=false}) => {
   // console.log(repos);
+  const className=alwaysFullWidth?'w-full':'lg:w-2/3 w-full';
   return (
-    <div className='lg:w-2/3 w-full bg-glassMorphismEffect rounded-lg px-8 py-6'>
+    <div className={`${className} bg-glassMorphismEffect rounded-lg px-8 py-6`}>
       <ol className='relative border-s bordergr200 '>
         {repos.map(repo=>(
           <Repo  key={repo.id} repo={repo}/>

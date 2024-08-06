@@ -11,7 +11,7 @@ const HomePage = () => {
   const [userProfile,setUserProfile]=useState(null);
   const [repos,setRepos]=useState([]);
   const [loading,setLoading]=useState(false);
-  const [sortType,setSortType]=useState("forks");
+  const [sortType,setSortType]=useState("recent");
 
   const getUserProfileAndRepos=useCallback(async(username="Codebreaker42")=>{
     setLoading(true);
@@ -25,7 +25,8 @@ const HomePage = () => {
       const repoRes= await fetch(userProfile.repos_url); //https://api.github.com/users/{username}/repos
       const repos=await repoRes.json();
       setRepos(repos);
-      setLoading(false);
+      repos.sort((a,b)=>new Date(b.created_at) - new Date(a.created_at));//decending recent first
+      // setLoading(false);
       // console.log("userProfile:",userProfile);
       // console.log("repos:",repos);
       return {userProfile,repos};
@@ -53,6 +54,7 @@ const HomePage = () => {
     setUserProfile(userProfile);
     setRepos(repos);
     setLoading(false);
+    setSortType("recent");
   }
 
   const onSort=(sortType)=>{
