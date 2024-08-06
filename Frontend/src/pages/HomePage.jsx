@@ -24,8 +24,8 @@ const HomePage = () => {
       setUserProfile(userProfile);  // setting the userProfile
       const repoRes= await fetch(userProfile.repos_url); //https://api.github.com/users/{username}/repos
       const repos=await repoRes.json();
-      setRepos(repos);
       repos.sort((a,b)=>new Date(b.created_at) - new Date(a.created_at));//decending recent first
+      setRepos(repos);
       // setLoading(false);
       // console.log("userProfile:",userProfile);
       // console.log("repos:",repos);
