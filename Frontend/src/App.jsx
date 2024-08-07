@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Route,Routes } from 'react-router-dom'
 import SignUpPage from './pages/SignUpPage'
@@ -10,7 +7,10 @@ import ExplorePage from './pages/ExplorePage'
 import Sidebar from './components/Sidebar'
 import LikesPages from './pages/LikesPages'
 import {Toaster} from 'react-hot-toast'
+import { useAuthContext } from './context/AuthContext'
 function App() {
+  const {authUser}=useAuthContext();
+  console.log("Authenticated User:",authUser); //custom hook => use this to check user is authenticated or not. 
   return (
     <>
       <div className='flex text-white'>

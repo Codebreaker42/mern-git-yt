@@ -13,6 +13,9 @@ const userSchema= new mongoose.Schema({
     profileURL:{
         type:String,
     },
+    avatarURL:{
+        type:String,   
+    },
     likedProfiles:{
         type:[String],
         default:[],
