@@ -10,10 +10,15 @@ export const getUserProfileAndRepos= async (req,res)=>{
       }); 
       const userProfile=await userRes.json();
       
-      setUserProfile(userProfile);  // setting the userProfile
-      const repoRes= await fetch(userProfile.repos_url); //https://api.github.com/users/{username}/repos
+      const repoRes= await fetch(userProfile.repos_url,{ //https://api.github.com/users/{username}/repos
+        headers:{
+            authorization:`token ${process.env.VITE_GITHUB_API_KEY}`
+        }
+      });
       const repos=await repoRes.json();
+      return res.status(200).json({userProfile,repos});
     } catch (error) {
-        res.status(500).json({error:error.message});
+        console.log("error");
+        return res.status(500).json({error:error.message});
     }
 }

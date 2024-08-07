@@ -1,8 +1,13 @@
 import express from 'express';
+import dotenv from "dotenv";
+import cors from 'cors';
 import userRoutes from './routes/user.route.js'
+
+dotenv.config()// middle ware used to enable the feature of read the content of .env file variables.
 const app=express();
 
 // Middleware
+app.use(cors());
 app.use(express.json()); //for using json response
 
 // Define a simple route for the root URL

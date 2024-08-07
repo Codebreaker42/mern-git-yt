@@ -18,12 +18,13 @@ const HomePage = () => {
     try{
       // api gives 60 requests per hr, 500 requested per hour to authenticated request 
       // url for getting github user information 
-      const userRes=await fetch(`https://api.github.com/users/${username}`); 
-      const userProfile=await userRes.json();
-      
+      const userRes=await fetch(`http://localhost:5000/api/users/profile/${username}`); 
+      const {userProfile,repos}= await userRes.json();
+      console.log("prifile",userProfile);
+      console.log("repos are",repos);
       setUserProfile(userProfile);  // setting the userProfile
-      const repoRes= await fetch(userProfile.repos_url); //https://api.github.com/users/{username}/repos
-      const repos=await repoRes.json();
+      // const repoRes= await fetch(userProfile.repos_url); //https://api.github.com/users/{username}/repos
+      // const repos=await repoRes.json();
       repos.sort((a,b)=>new Date(b.created_at) - new Date(a.created_at));//decending recent first
       setRepos(repos);
       // setLoading(false);
