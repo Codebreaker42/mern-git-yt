@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from 'cors';
 import userRoutes from './routes/user.route.js';
 import exploreRoute from './routes/explore.route.js';
+import connectMongoDB from './db/connectMongoDB.js';
 
 dotenv.config()// middle ware used to enable the feature of read the content of .env file variables.
 const app=express();
@@ -22,4 +23,5 @@ app.use("/api/explore",exploreRoute);
 
 app.listen(5000,()=>{
     console.log("Server started on http://localhost:5000");
+    connectMongoDB(); //connect mongodb with backend
 })
