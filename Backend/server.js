@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from "dotenv";
 import cors from 'cors';
+import authRoutes from './routes/auth.route.js'
 import userRoutes from './routes/user.route.js';
 import exploreRoute from './routes/explore.route.js';
 import connectMongoDB from './db/connectMongoDB.js';
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 });
 
 // middleware to create our routes to clean the file as possible
+app.use("/api/auth",authRoutes);
 app.use("/api/users",userRoutes);
 app.use("/api/explore",exploreRoute);
 
