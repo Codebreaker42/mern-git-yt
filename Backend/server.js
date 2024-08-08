@@ -19,8 +19,13 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 // persistent login sessions (recommended).
 app.use(passport.initialize());
 app.use(passport.session());
+
 // Middleware
-app.use(cors());
+// CORS configuration
+app.use(cors({
+  origin: 'http://localhost:3000', // replace with your frontend's URL
+  credentials: true // allow sending cookies with requests
+}));
 app.use(express.json()); //for using json response
 
 // Define a simple route for the root URL

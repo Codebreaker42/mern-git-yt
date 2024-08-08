@@ -34,6 +34,7 @@ passport.serializeUser(function(user, done) {
     },
     async function(accessToken, refreshToken, profile, done) {
            console.log(profile);//gives all login information in json format
+           console.log("hi");
         // signup logic 
         const user=await User.findOne({username:profile.username});// serching user by username from profile info
         if(!user){

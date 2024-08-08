@@ -1,5 +1,5 @@
 import './App.css'
-import { Route,Routes } from 'react-router-dom'
+import { Navigate, Route,Routes } from 'react-router-dom'
 import SignUpPage from './pages/SignUpPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
@@ -8,9 +8,12 @@ import Sidebar from './components/Sidebar'
 import LikesPages from './pages/LikesPages'
 import {Toaster} from 'react-hot-toast'
 import { useAuthContext } from './context/AuthContext'
+
+
 function App() {
-  const {authUser}=useAuthContext();
-  console.log("Authenticated User:",authUser); //custom hook => use this to check user is authenticated or not. 
+  // const authUser=true;
+  const {authUser}=useAuthContext(); //custom hook => use this to check user is authenticated or not.
+  console.log("Authenticated User:",authUser);  
   return (
     <>
       <div className='flex text-white'>
@@ -19,10 +22,10 @@ function App() {
         <div className='max-w-5xl my-5 text-white mx-auto transition-all duration-300 flex-1'>
           <Routes>
             <Route path='/' element={<HomePage/>}/>
-            <Route path='/signin' element={<LoginPage/>}/>
-            <Route path='/signup' element={<SignUpPage/>}/>
-            <Route path='/explore' element={<ExplorePage/>}/>
-            <Route path='/likes' element={<LikesPages/>}/>
+            <Route path='/signin' element={!authUser?<LoginPage/>:<Navigate to="/"/>}/>
+            <Route path='/signup' element={!authUser?<SignUpPage/>:<Navigate to="/"/>}/>
+            <Route path='/explore' element={authUser?<ExplorePage/>:<Navigate to="/signin"/>}/>
+            <Route path='/likes' element={authUser?<LikesPages/>:<Navigate to="/signin"/>}/>
           </Routes>
           <Toaster/>
           <footer>Footer</footer>

@@ -6,10 +6,13 @@ import { MdOutlineExplore } from 'react-icons/md'
 import { PiSignInBold } from "react-icons/pi";
 import { MdEditDocument } from "react-icons/md";
 import Logout from "./Logout";
+import { useAuthContext } from '../context/AuthContext'
 // using bg-glassMorphismEffect class as a component where we want to use 
 
 const Sidebar = () => {
-  const authUser = true;
+  // const authUser = true;
+  const {authUser}=useAuthContext(); //custom hook => use this to check user is authenticated or not.
+  console.log(authUser);
   return (
     <aside className="flex flex-col items-center min-w-12 sm:w-16 fixed top-0 left-0 h-screen py-8 
     overflow-y-auto border-r 

@@ -7,7 +7,7 @@ import { TfiThought } from "react-icons/tfi";
 import { formatMemberSince } from '../utils/functions';
 // here we are using the github api to fetch the data 
 const ProfileInfo = ({userProfile,loading}) => {
-	console.log(userProfile);
+	// console.log(userProfile);
   // hardcoded data return by the github 
 //   const userProfile = {
 // 		avatar_url: "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",

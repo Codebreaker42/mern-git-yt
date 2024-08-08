@@ -20,8 +20,8 @@ const HomePage = () => {
       // url for getting github user information 
       const userRes=await fetch(`http://localhost:5000/api/users/profile/${username}`); 
       const {userProfile,repos}= await userRes.json();
-      console.log("prifile",userProfile);
-      console.log("repos are",repos);
+      // console.log("prifile",userProfile);
+      // console.log("repos are",repos);
       setUserProfile(userProfile);  // setting the userProfile
       // const repoRes= await fetch(userProfile.repos_url); //https://api.github.com/users/{username}/repos
       // const repos=await repoRes.json();

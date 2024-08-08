@@ -16,8 +16,9 @@ export const AuthContextProvider=({children})=>{
             try {
                 const res=await fetch("http://localhost:5000/api/auth/check",{
                     credentials:"include",
-                })
-                const data=res.json();
+                });
+                const data=await res.json();
+                console.log(data);
                 setAuthUser(data.user);
             } catch (error) {
                 toast.error(error.message);
