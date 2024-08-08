@@ -26,7 +26,7 @@ router.get("/check",(req,res)=>{
 //logout functionality implementation
 router.get("/logout",(req,res)=>{
     req.session.destroy((err)=>{
-        res.json({message:"Logged out"});
+        res.status(200).json({message:"Logged out"});
     });
 });
 
