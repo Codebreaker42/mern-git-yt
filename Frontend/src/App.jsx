@@ -13,7 +13,7 @@ import { useAuthContext } from './context/AuthContext'
 function App() {
   // const authUser=true;
   const {authUser,loading}=useAuthContext(); //custom hook => use this to check user is authenticated or not.
-  console.log("Authenticated User:",authUser); 
+  // console.log("Authenticated User:",authUser); 
   if(loading) return null; 
   return (
     <>

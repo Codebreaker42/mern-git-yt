@@ -12,7 +12,7 @@ import { useAuthContext } from '../context/AuthContext'
 const Sidebar = () => {
   // const authUser = true;
   const {authUser}=useAuthContext(); //custom hook => use this to check user is authenticated or not.
-  console.log(authUser);
+  // console.log(authUser);
   return (
     <aside className="flex flex-col items-center min-w-12 sm:w-16 fixed top-0 left-0 h-screen py-8 
     overflow-y-auto border-r 
@@ -43,7 +43,7 @@ const Sidebar = () => {
         )}
         {!authUser && (
           <Link
-            to='/login'
+            to='/signin'
             className='p-1.5 focus:outline-nones transition-colors duration-200 rounded-lg hover:bg-gray-800'
           >
             <PiSignInBold size={25} />

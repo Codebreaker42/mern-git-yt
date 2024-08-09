@@ -6,14 +6,16 @@ import Repos from '../components/Repos'
 import { useState,useEffect,useCallback } from 'react'
 import toast from 'react-hot-toast'
 import Spinner from '../components/Spinner'
+import { useAuthContext } from '../context/AuthContext'
 ProfileInfo
 const HomePage = () => {
   const [userProfile,setUserProfile]=useState(null);
   const [repos,setRepos]=useState([]);
   const [loading,setLoading]=useState(false);
   const [sortType,setSortType]=useState("recent");
-
-  const getUserProfileAndRepos=useCallback(async(username="Codebreaker42")=>{
+  const {authUser}=useAuthContext();
+  // console.log(authUser);
+  const getUserProfileAndRepos=useCallback(async(username=authUser.username)=>{
     setLoading(true);
     try{
       // api gives 60 requests per hr, 500 requested per hour to authenticated request 
@@ -21,7 +23,8 @@ const HomePage = () => {
       const userRes=await fetch(`http://localhost:5000/api/users/profile/${username}`); 
       const {userProfile,repos}= await userRes.json();
       // console.log("prifile",userProfile);
-      // console.log("repos are",repos);
+      console.log("repos are",repos);
+      console.log("Repos length:", repos.length);
       setUserProfile(userProfile);  // setting the userProfile
       // const repoRes= await fetch(userProfile.repos_url); //https://api.github.com/users/{username}/repos
       // const repos=await repoRes.json();
