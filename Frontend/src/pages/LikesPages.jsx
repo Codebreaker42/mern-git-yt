@@ -15,7 +15,6 @@ const LikesPages = () => {
 					credentials:'include',
 				});
 				const data=await res.json();
-				console.log("hi",data);
 				if(data.error) throw new Error(data.error);
 				setLikes(data.likedBy);
 			}
@@ -26,7 +25,7 @@ const LikesPages = () => {
 		}
 		getLikes();
 	},[]);
-	console.log("likes:",likes);
+	// console.log("likes:",likes);
   return (
     <div className='relative overflow-x-auto shadow-md rounded-lg px-4'>
 			<table className='w-full text-sm text-left rtl:text-right bg-glass overflow-hidden'>

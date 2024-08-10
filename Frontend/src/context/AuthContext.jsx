@@ -19,7 +19,7 @@ export const AuthContextProvider=({children})=>{
                     credentials:"include",
                 });
                 const data=await res.json();
-                console.log(data);
+                // console.log(data);
                 setAuthUser(data.user);
             } catch (error) {
                 toast.error(error.message);
