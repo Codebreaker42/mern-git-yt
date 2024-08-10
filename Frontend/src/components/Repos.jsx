@@ -11,10 +11,10 @@ const Repos = ({ repos = [], alwaysFullWidth = false }) => {
       <ol className='relative border-s border-gray-200'>
         {console.log("Repos length:", repos.length)}
         
-        {repos.length > 0 && <p className='flex items-center justify-center h-32 '>No Repositories Found</p>}
-				{/* {repos.map((repo) => (
+        {repos.length === 0 && <p className='flex items-center justify-center h-32 '>No Repositories Found</p>}
+				{repos.map((repo) => (
 					<Repo key={repo.id} repo={repo} />
-				))} */}
+				))}
 			</ol>
     </div>
   );

@@ -11,7 +11,7 @@ const LikesPages = () => {
 	useEffect(()=>{
 		const getLikes= async()=>{
 			try {
-				const res= await fetch("http://localhost:5000/api/users/likes",{
+				const res= await fetch("/api/users/likes",{
 					credentials:'include',
 				});
 				const data=await res.json();

@@ -16,7 +16,7 @@ export const LikeProfile = ({userProfile}) => {
   const handleLikeProfile= async() =>{
     // send request to our endpoint
     try {
-      const res=await fetch(`http://localhost:5000/api/users/like/${userProfile.login}`,{
+      const res=await fetch(`/api/users/like/${userProfile.login}`,{
         method:"POST",
         credentials:"include",
       })

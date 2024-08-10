@@ -20,11 +20,10 @@ const HomePage = () => {
     try{
       // api gives 60 requests per hr, 500 requested per hour to authenticated request 
       // url for getting github user information 
-      const userRes=await fetch(`http://localhost:5000/api/users/profile/${username}`); 
+      const userRes=await fetch(`/api/users/profile/${username}`); 
       const {userProfile,repos}= await userRes.json();
       // console.log("prifile",userProfile);
-      console.log("repos are",repos);
-      console.log("Repos length:", repos.length);
+      // console.log("repos are",repos);
       setUserProfile(userProfile);  // setting the userProfile
       // const repoRes= await fetch(userProfile.repos_url); //https://api.github.com/users/{username}/repos
       // const repos=await repoRes.json();
@@ -78,10 +77,10 @@ const HomePage = () => {
   return (
     <div className='m-4'>
       <Search onSearch={onSearch}/>
-      {repos.length>0 && <SortRepos onSort={onSort} sortType={sortType}/>}
+      {<SortRepos onSort={onSort} sortType={sortType}/>}
       <div className='flex gap-4 flex-col lg:flex-row justify-center items-start'>
         {  !loading && <ProfileInfo userProfile={userProfile} loading={loading}/>}
-        {repos.length>0 && !loading && <Repos repos={repos}/>}
+        {!loading && <Repos repos={repos}/>}
         {loading && <Spinner/>}
       </div>
     </div>

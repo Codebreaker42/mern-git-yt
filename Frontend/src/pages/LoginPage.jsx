@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 // using bg-glassMorphismEffect class as a component where we want to use 
 const LoginPage = () => {
   const handleLoginWithGithub=()=>{
-	window.location.href="http://localhost:5000/api/auth/github","__self";
+	window.location.href="/api/auth/github","__self";
 	// toast.success("You logged in Successfully");
   }
   return (

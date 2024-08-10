@@ -6,7 +6,7 @@ const Logout = () => {
 	const {authUser,setAuthUser}=useAuthContext(); //custom hook to check user is authenticated or not.
 	const handleLogOut= async ()=>{
 		try {
-			const res=await fetch("http://localhost:5000/api/auth/logout",{
+			const res=await fetch("/api/auth/logout",{
 				credentials:"include",
 			})
 			const data= await res.json();
