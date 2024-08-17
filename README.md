@@ -38,13 +38,12 @@ The project is built with the following technologies:
 ## 📂 Directory Structure
 
 ```bash
-├── backend
-│   ├── config
+├── Backend
 │   ├── controllers
 │   ├── models
 │   ├── routes
 │   └── server.js
-├── frontend
+├── Frontend
 │   ├── public
 │   ├── src
 │   │   ├── components
@@ -61,16 +60,31 @@ The project is built with the following technologies:
 ```bash
 git clone https://github.com/your-username/github-analytics-portal.git
 ```
-
+## 2.Install dependencies for both frontend and backend:
 # Navigate to the backend directory
 ```bash
-cd backend
+cd Backend
 npm install
 ```
 
 # Navigate to the frontend directory
 ```bash
-cd frontend
+cd Frontend
 npm install
+```
+## 3.Environment Variables:
+-Set up your environment variables for OAuth and other configurations in a .env file in the backend directory.
+
+## 4. Run the Application
+# Start the backend server
+```bash
+cd Backend
+npm run dev
+```
+
+# Start the frontend
+```bash
+cd Frontend
+npm run dev
 ```
 
