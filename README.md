@@ -73,7 +73,7 @@ cd Frontend
 npm install
 ```
 ## 3.Environment Variables:
--Set up your environment variables for OAuth and other configurations in a .env file in the backend directory.
+Set up your environment variables for OAuth and other configurations in a .env file in the backend directory.
 
 ## 4. Run the Application
 # Start the backend server
@@ -88,12 +88,22 @@ cd Frontend
 npm run dev
 ```
 # 📝 Usage
--Sign In/Sign Up:
+### 1.Sign In/Sign Up:
 
--Access the portal using your GitHub account.
--Explore Users:
+Access the portal using your GitHub account.
+### 2.Explore Users:
 
--Use the search functionality on the home page to find and analyze GitHub profiles and repositories.
--Like and Explore:
+Use the search functionality on the home page to find and analyze GitHub profiles and repositories.
 
--Engage with profiles and explore popular repositories across different languages.
+### 3.Like and Explore:
+
+Engage with profiles and explore popular repositories across different languages.
+
+# 🛡️ Authentication
+The app uses Passport.js for secure user authentication through GitHub's OAuth system.
+
+# 📝 License
+This project is licensed under the MIT License. See the LICENSE file for more information.
+
+# 🌐 Contact
+For any inquiries or feedback, please contact me at your.email@example.com.
