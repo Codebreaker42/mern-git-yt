@@ -52,5 +52,25 @@ The project is built with the following technologies:
 │   │   ├── utils
 │   │   └── App.js
 └── README.md
+```
 
-### Backend:
+# Installation
+
+## 1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/github-analytics-portal.git
+```
+
+# Navigate to the backend directory
+```bash
+cd backend
+npm install
+```
+
+# Navigate to the frontend directory
+```bash
+cd frontend
+npm install
+```
+
