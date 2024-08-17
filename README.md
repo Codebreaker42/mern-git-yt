@@ -87,4 +87,13 @@ npm run dev
 cd Frontend
 npm run dev
 ```
+# 📝 Usage
+-Sign In/Sign Up:
 
+-Access the portal using your GitHub account.
+-Explore Users:
+
+-Use the search functionality on the home page to find and analyze GitHub profiles and repositories.
+-Like and Explore:
+
+-Engage with profiles and explore popular repositories across different languages.
