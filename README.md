@@ -106,4 +106,4 @@ The app uses Passport.js for secure user authentication through GitHub's OAuth s
 This project is licensed under the MIT License. See the LICENSE file for more information.
 
 # 🌐 Contact
-For any inquiries or feedback, please contact me at your.email@example.com.
+For any inquiries or feedback, please contact me at nitinbdkt777@gmail.com.
