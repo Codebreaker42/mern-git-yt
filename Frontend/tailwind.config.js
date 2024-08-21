@@ -9,6 +9,24 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
+  daisyui: {
+    base: false, // Disable DaisyUI's base styles (preflight)
+  },
+  // daisyui: {
+  //   themes: [
+  //     {
+  //       mytheme: {
+  //         "primary": "#570DF8",
+  //         "secondary": "#F000B8",
+  //         "accent": "#37CDBE",
+  //         "neutral": "#3D4451",
+  //         "base-100": "#ffffff",
+  //       },
+  //     },
+  //   ],
+  // },
 }
 

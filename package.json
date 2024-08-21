@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon Backend/server.js",
-    "build":"npm install && npm install --prefix Frontend && npm run build --prefix Frontend",
+    "build": "npm install && npm install --prefix Frontend && npm run build --prefix Frontend",
     "start": "node Backend/server.js"
   },
   "type": "module",
@@ -22,6 +22,7 @@
     "passport-github2": "^0.1.12"
   },
   "devDependencies": {
+    "daisyui": "^4.12.10",
     "nodemon": "^3.1.4"
   }
 }
