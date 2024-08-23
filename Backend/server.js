@@ -10,6 +10,7 @@ import './passport/github.auth.js';
 import authRoutes from './routes/auth.route.js'
 import userRoutes from './routes/user.route.js';
 import exploreRoute from './routes/explore.route.js';
+import messageRoute from './routes/message.route.js'
 import connectMongoDB from './db/connectMongoDB.js';
 
 dotenv.config()// middleware used to enable the feature of read the content of .env file variables.
@@ -35,6 +36,7 @@ app.use(express.json()); //for using json response
 app.use("/api/auth",authRoutes);
 app.use("/api/users",userRoutes);
 app.use("/api/explore",exploreRoute);
+app.use("/api/message",messageRoute);
 
 // logic to call front end backend server simenteniously
 app.use(express.static(path.join(__dirname,"/Frontend/dist")));
