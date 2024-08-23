@@ -7,6 +7,7 @@ import { PiSignInBold } from "react-icons/pi";
 import { MdEditDocument } from "react-icons/md";
 import Logout from "./Logout";
 import { useAuthContext } from '../context/AuthContext'
+import { BsChatDots } from "react-icons/bs";
 // using bg-glassMorphismEffect class as a component where we want to use 
 
 const Sidebar = () => {
@@ -39,6 +40,13 @@ const Sidebar = () => {
             className='p-1.5 flex justify-center transition-colors 
       duration-200 rounded-lg hover:bg-gray-800'>
             <MdOutlineExplore size={25} />
+          </Link>
+        )}
+        {authUser && (
+          <Link to='/message'
+            className='p-1.5 flex justify-center transition-colors 
+      duration-200 rounded-lg hover:bg-gray-800'>
+            <BsChatDots size={25}/>
           </Link>
         )}
         {!authUser && (
