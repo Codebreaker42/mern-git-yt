@@ -2,17 +2,19 @@ import react from "react";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import {TiMessages} from 'react-icons/ti'
+import useConversation from "../../custom hooks/zustand/useConversation";
 
 const MessageContainer = () => {
-	const nochatselected=true;
+	// const nochatselected=true; //hardcoded value
+	const {selectedConversation,setSelectedConversation} = useConversation(); //a gloabal state tell which conversation is currently open
 	return (
 		<div className='md:min-w-[680px] flex flex-col'>
-			{nochatselected?<NoChatSelected/>:
+			{!selectedConversation?<NoChatSelected/>:
 			(<>
 				{/* Header */}
 				<div className='bg-slate-500 px-4 py-2 mb-2'>
 					<span className='label-text'>To:</span>
-          <span className='text-gray-900 font-bold'>John doe</span>
+          <span className='text-gray-900 font-bold text-left'>{selectedConversation.username}</span>
 				</div>
 
 				<Messages />
