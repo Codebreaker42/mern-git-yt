@@ -5,15 +5,15 @@ import { extractTime } from '../../utils/extractTime';
 
 const Message = ({message}) => {
   // check if the message gonna sender or reciever 
-  console.log(message)
+  // console.log(message)
   const {authUser}= useAuthContext();  //give the authenticated user details
   // console.log(authUser);
   const {selectedConversation}= useConversation(); //give the current conversation person details
   const fromMe = message.senderId === authUser._id;
   const formattedTime=extractTime(message.createdAt);
-  console.log(fromMe);
+  // console.log(fromMe);
   const chatClassName= fromMe? 'chat-end': 'chat-start';
-  const profilePic=fromMe? authUser.avatarURL: selectedConversation.profileURL;
+  const profilePic=fromMe? authUser.avatarURL: selectedConversation.avatarURL;
   const bubbleBgColor= fromMe? 'bg-blue-500': "";
 
 
