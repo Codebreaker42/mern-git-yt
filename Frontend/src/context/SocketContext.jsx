@@ -16,7 +16,7 @@ export const SocketContextProvider= ({children}) => {
     // console.log(authUser)
     useEffect(()=>{
         if(authUser){
-            const socket= io("http://localhost:5000",{
+            const socket= io("https://github-analytical-portal.onrender.com",{
                 query:{
                     userId:authUser._id,
                 }
