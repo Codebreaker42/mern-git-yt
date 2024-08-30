@@ -1,4 +1,5 @@
 import express from 'express';
+import {app,io,server} from './socket/socket.js'
 import dotenv from "dotenv";
 import cors from 'cors';
 import passport from 'passport'
@@ -15,7 +16,7 @@ import connectMongoDB from './db/connectMongoDB.js';
 
 dotenv.config()// middleware used to enable the feature of read the content of .env file variables.
 const PORT=process.env.PORT||5000
-const app=express();
+// const app=express();
 
 // logic to call front end backend server simenteniously
 const __dirname=path.resolve();
@@ -44,7 +45,7 @@ app.get("*",(req,res)=>{
   res.sendFile(path.join(__dirname,"Frontend","dist","index.html"));
 })
 
-app.listen(PORT,()=>{
+server.listen(PORT,()=>{
     console.log(`Server started on http://localhost:${PORT}`);
     connectMongoDB(); //connect mongodb with backend
 })

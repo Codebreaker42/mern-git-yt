@@ -1,13 +1,15 @@
 import MessageSkeleton from "../skeletons/MessageSkeleton";
 import Message from "./Message";
-import useGetMessages from "../../custom hooks/message/useGetMessages";
+import useGetMessages from "../../custom hooks/message/useGetMessages.js";
 import { useEffect, useRef } from "react";
+import useListenMessages from "../../custom hooks/message/useListenMessages.js";
 
 
 const Messages = () => {
 	const {messages,loading}=useGetMessages();
+	useListenMessages();
 	const lastMessageRef=useRef();
-	console.log("messages:",messages);
+	// console.log("messages:",messages);
 
 	useEffect(()=>{
 		setTimeout(() => {
