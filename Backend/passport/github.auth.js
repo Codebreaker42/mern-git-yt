@@ -14,7 +14,6 @@ dotenv.config();
 //   have a database of user records, the complete GitHub profile is serialized
 //   and deserialized.
 passport.serializeUser(function(user, done) {
-    console.log("hi");
     done(null, user);
   });
   
@@ -30,11 +29,10 @@ passport.serializeUser(function(user, done) {
   passport.use(new GitHubStrategy({
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: "https://github-analytical-portal.onrender.com/api/auth/github/callback"
+      callbackURL: "http://localhost:5000/api/auth/github/callback"
     },
     async function(accessToken, refreshToken, profile, done) {
-           console.log(profile);//gives all login information in json format
-           console.log("hi");
+          //  console.log(profile);//gives all login information in json format
         // signup logic 
         const user=await User.findOne({username:profile.username});// serching user by username from profile info
         if(!user){

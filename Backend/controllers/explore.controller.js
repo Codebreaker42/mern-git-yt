@@ -1,6 +1,5 @@
 export const explorePopularRepos= async (req,res)=>{
     const {language} =req.params;
-    console.log("hi");
     try {
         // api gives 60 requests per hr, 500 requested per hour to authenticated request 
       // url for getting github user information 

@@ -29,7 +29,7 @@ export const likeProfile= async(req,res)=>{
   try {
       const {username}=req.params; //username => which profile logged in user to like
       const user=await User.findById(req.user._id.toString()); //logged in username
-      console.log("auth user",user);
+      // console.log("auth user",user);
       const userToLike=await User.findOne({username:username});
       // if user is not found
       if(!userToLike){
@@ -58,10 +58,23 @@ export const likeProfile= async(req,res)=>{
 export const getLikes= async(req,res)=>{
   try {
     const user =await User.findById(req.user._id.toString());
-    console.log(user);
+    // console.log(user);
     return res.status(200).json({likedBy:user.likedBy});
   } 
   catch (error) {
     return res.status(500).json({error:error.message});
+  }
+}
+export const getUsersforSidebar= async(req,res)=>{
+  // console.log("hello")
+  try {
+    const loggedInUserId=req.user._id;
+    // console.log("id:",loggedInUserId);
+    const filteredUsers=await User.find({_id: {$ne: loggedInUserId} }).select("-password");
+    res.status(200).json(filteredUsers);
+  }
+  catch (error) {
+    console.error("Error in getUsersForSidebar: ",error.message);
+    res.status(500).json({error:"Internal Server error"});
   }
 }
